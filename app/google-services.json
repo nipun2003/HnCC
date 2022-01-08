@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "114235300415",
+    "project_id": "hncc-ce130",
+    "storage_bucket": "hncc-ce130.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114235300415:android:436085abf704059c6bf68a",
+        "android_client_info": {
+          "package_name": "com.nipunapps.hncc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114235300415-k242gorl66dqbd5jen2pkfnjvkkj21i0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nipunapps.hncc",
+            "certificate_hash": "a87b32c7fb33f8de2bb8dfd64853e1187fb37424"
+          }
+        },
+        {
+          "client_id": "114235300415-vjc1dvd3p27q4rg8vdbadg1kn5htb4nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjw93eovm4pJk6DeEFXF6Qm4qIkisV6k4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114235300415-vjc1dvd3p27q4rg8vdbadg1kn5htb4nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

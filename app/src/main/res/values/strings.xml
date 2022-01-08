@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">HnCC</string>
+    <string name="club_quote">Design. Develop. Code.</string>
+    <string name="about_hncc">Irure ullamco in dolor ea cillum dolor ex. Ut aute enim adipisicing officia Lorem ipsum ipsum officia. Anim reprehenderit laboris quis ut aliquip pariatur dolor consectetur deserunt labore do proident tempor. In mollit voluptate ad reprehenderit voluptate dolore officia. Eu eiusmod aliquip deserunt cupidatat aliqua ea amet Lorem ad sunt ipsum officia labore.</string>
+
+    <string name="design">Establishing the right visual connection with your customers and users by creating eye-catching and memorable designs as well as meaningful user experience.</string>
+    <string name="website_and_platform">We design projects of different complexity and size. No matter if it is a simple single-page website or a complex admin panel with numerous dashboards - we make it visually pleasing, consistent, and user-friendly.</string>
+    <string name="mobile_application">We don’t simply design beautiful interfaces but craft them in accordance with each platforms’ guidelines to make the use of our app intuitive.</string>
+    <string name="branding">We identify our brand by developing a logo, identity, , any mockups, and souvenir projects.</string>
+    <string name="design_concept">We’ll make a design concept for a site or mobile application to attract our audience and make our awesome project even more awesome.</string>
+    <string name="develop">Implementing our project with scalable architecture design, modern technology, and with the industry level workflow system.</string>
+    <string name="develop_website">We create web projects tailored exclusively with industry scales, be it a landing page, a complex web app to automate our processes or a high-load platform with sound backend architecture.</string>
+    <string name="develop_native_hybrid">We build custom Android mobile apps using Java(Kotlin) and multiple cross platform (IoS and Andorid) mobile apps using React Native and Flutter.</string>
+    <string name="develop_ai_ml">We focus on developing and strengthening systems thinking, problem-solving, analysis, design, research, teamwork and readiness for lifelong learning in areas of Artificial Intelligence, Machine Learning, and Deep-Learning.</string>
+    <string name="develop_open_source">Our mission is to create an environment where the benefits of open development enable students to collaborate and explore beyond the classroom.</string>
+    <string name="code">Being Coding Club of a technical institution, we do pretty much everything and anything related to coding. Coding events, Workshops, Hackathons (48 hours non stop coding), contests are just to name a few. We believe in coding our problems away.</string>
+    <string name="competitive_coding">Competitive programming is a mind sport usually held over the Internet or a local network, involving participants trying to program according to provided specifications. Contestants are referred to as sport programmers.</string>
+    <string name="code_dsa">Data structure and Algorithm (DSA) is applied in all disciplines of software development. DSA is the building block of the software development process. It is one of the most important section for placments.</string>
+</resources>
