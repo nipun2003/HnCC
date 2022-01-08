@@ -30,5 +30,6 @@ val ExtraBigPadding = 30.dp
 val PaddingStatusBar = 35.dp
 val HamPadding = 7.dp
 val SocialIconSize = 60.dp
+val NavItemWidth = 130.dp
 val LogoSize = 100.dp
 val ClipNavigation = 300.dp

@@ -1,14 +1,19 @@
 package com.nipunapps.hncc.feature_hncc.presentation.screen
 
 import android.os.Build.VERSION.SDK_INT
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -28,6 +33,7 @@ import com.nipunapps.hncc.feature_hncc.domain.model.demoInfos
 import com.nipunapps.hncc.feature_hncc.presentation.components.ArchitectComp
 import com.nipunapps.hncc.feature_hncc.presentation.viewmodels.MainViewModel
 import com.nipunapps.hncc.ui.theme.*
+import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(
@@ -36,6 +42,7 @@ fun MainScreen(
 ) {
     val imageState = viewModel.url.value
     val url = imageState.data
+    val coroutine = rememberCoroutineScope()
 
     val scrollState = rememberScrollState()
     Scaffold(modifier = Modifier.fillMaxSize()) {
@@ -68,8 +75,8 @@ fun MainScreen(
                 )
             }
             Spacer(modifier = Modifier.size(BigPadding))
-            demoArchitects.forEachIndexed{i,a->
-                if(i>0){
+            demoArchitects.forEachIndexed { i, a ->
+                if (i > 0) {
                     Spacer(modifier = Modifier.size(BigPadding))
                 }
                 ArchitectComp(
@@ -78,6 +85,46 @@ fun MainScreen(
                         .fillMaxWidth(),
                     architect = demoArchitects[i]
                 )
+            }
+            Spacer(modifier = Modifier.size(BigPadding))
+            Button(
+                onClick = {
+                    coroutine.launch {
+                        scrollState.animateScrollTo(
+                            value = 0,
+                            animationSpec = tween(
+                                durationMillis = 150,
+                            )
+                        )
+                    }
+                },
+                border = BorderStroke(
+                    width = SmallStroke,
+                    color = GenreColor
+                ),
+                shape = CircleShape,
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.Transparent
+                ),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = "Up",
+                    tint = Color.White,
+                    modifier = Modifier
+                        .size(PaddingStatusBar)
+                        .padding(ExtraSmallPadding)
+                        .rotate(90f)
+                )
+                Spacer(modifier = Modifier.size(ExtraSmallPadding))
+                Text(
+                    text = "Top",
+                    style = MaterialTheme.typography.button,
+                    modifier = Modifier.padding(ExtraSmallPadding)
+                )
+
             }
             Spacer(modifier = Modifier.size(BigPadding))
         }
