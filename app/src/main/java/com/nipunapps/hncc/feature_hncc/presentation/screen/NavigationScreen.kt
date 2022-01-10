@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import com.nipunapps.hncc.R
+import com.nipunapps.hncc.core.noRippleClickable
 import com.nipunapps.hncc.feature_hncc.presentation.components.SocialComponent
 import com.nipunapps.hncc.ui.Screen
 import com.nipunapps.hncc.ui.theme.*
@@ -88,6 +90,8 @@ fun NavigationScreen(
 fun WEmail(
     modifier: Modifier = Modifier,
 ) {
+    val uriHandler = LocalUriHandler.current
+    val email = "hnccbits@gmail.com"
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.Top,
@@ -100,8 +104,11 @@ fun WEmail(
         Spacer(modifier = Modifier.size(ExtraSmallPadding))
         SelectionContainer {
             Text(
-                text = "hnccbits@gmail.com",
-                style = MaterialTheme.typography.body1
+                text = email,
+                style = MaterialTheme.typography.body1,
+                modifier = Modifier.noRippleClickable {
+                    uriHandler.openUri("mailto:$email")
+                }
             )
         }
     }

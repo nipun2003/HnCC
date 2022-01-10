@@ -16,4 +16,6 @@
     <string name="code">Being Coding Club of a technical institution, we do pretty much everything and anything related to coding. Coding events, Workshops, Hackathons (48 hours non stop coding), contests are just to name a few. We believe in coding our problems away.</string>
     <string name="competitive_coding">Competitive programming is a mind sport usually held over the Internet or a local network, involving participants trying to program according to provided specifications. Contestants are referred to as sport programmers.</string>
     <string name="code_dsa">Data structure and Algorithm (DSA) is applied in all disciplines of software development. DSA is the building block of the software development process. It is one of the most important section for placments.</string>
+    <string name="team_quote">The strength of the team is each individual member. The strength of each member is the team.
+- Phil Jackson</string>
 </resources>

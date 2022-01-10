@@ -8,6 +8,7 @@ val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 val GenreColor = Color(0xFFebe4e4)
+val Gray = Color(0x80747272)
 
 val SkyBlue = Color(0xFF7EE3FC)
 val SkyBlueLow = Color(0x337EE3FC)
@@ -29,6 +30,7 @@ val ExtraSmallPadding = 5.dp
 val ExtraBigPadding = 30.dp
 val PaddingStatusBar = 35.dp
 val HamPadding = 7.dp
+val TeamSocialIconSize = 40.dp
 val SocialIconSize = 60.dp
 val NavItemWidth = 130.dp
 val LogoSize = 100.dp

@@ -24,10 +24,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.nipunapps.hncc.core.noRippleClickable
-import com.nipunapps.hncc.feature_hncc.presentation.screen.AboutScreen
-import com.nipunapps.hncc.feature_hncc.presentation.screen.MainScreen
-import com.nipunapps.hncc.feature_hncc.presentation.screen.NavigationScreen
-import com.nipunapps.hncc.feature_hncc.presentation.screen.TeamScreen
+import com.nipunapps.hncc.feature_hncc.presentation.screen.*
 import com.nipunapps.hncc.feature_hncc.presentation.viewmodels.MainViewModel
 import com.nipunapps.hncc.ui.Screen
 import com.nipunapps.hncc.ui.theme.HamPadding
@@ -99,7 +96,12 @@ class MainActivity : ComponentActivity() {
                             composable(
                                 route = Screen.TeamScreen.route
                             ) {
-                                TeamScreen()
+                                TeamScreen(navController = navController)
+                            }
+                            composable(
+                                route = "image/{image}"
+                            ){
+                                ImageFullScreen()
                             }
                         }
                     }

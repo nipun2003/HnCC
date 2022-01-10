@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import com.nipunapps.hncc.R
 import com.nipunapps.hncc.ui.theme.SmallPadding
 import com.nipunapps.hncc.ui.theme.SocialIconSize
+import com.nipunapps.hncc.ui.theme.TeamSocialIconSize
 
 data class SocialIcon(
     val icon: Int,
