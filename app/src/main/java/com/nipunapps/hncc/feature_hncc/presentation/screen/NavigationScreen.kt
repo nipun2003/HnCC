@@ -63,6 +63,9 @@ fun NavigationScreen(
                 NavOption(screen = Screen.TeamScreen) { route ->
                     onclick(route)
                 }
+                NavOption(screen = Screen.JoinUsScreen) { route ->
+                    onclick(route)
+                }
             }
         }
         Column(

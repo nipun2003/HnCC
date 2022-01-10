@@ -1,18 +1,23 @@
 package com.nipunapps.hncc.feature_hncc.presentation.screen
 
+import android.util.Log
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.LinearProgressIndicator
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
@@ -32,6 +37,7 @@ import com.nipunapps.hncc.feature_hncc.data.remote.dto.Member
 import com.nipunapps.hncc.feature_hncc.domain.model.HeadBodyModel
 import com.nipunapps.hncc.feature_hncc.presentation.viewmodels.TeamViewModel
 import com.nipunapps.hncc.ui.theme.*
+import kotlinx.coroutines.launch
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
@@ -41,8 +47,11 @@ fun TeamScreen(
     navController: NavController
 ) {
     val teamState = viewModel.teamState.value
+    val coroutine = rememberCoroutineScope()
     Box(modifier = Modifier.fillMaxSize()) {
+        val listState = rememberLazyListState()
         LazyColumn(
+            state = listState,
             modifier = Modifier
                 .fillMaxSize(),
             contentPadding = PaddingValues(BigPadding)
@@ -72,6 +81,51 @@ fun TeamScreen(
                     )
                     navController.navigate("image/$enCodeImage")
                 }
+            }
+            item {
+                Row(
+                    modifier = Modifier
+                        .padding(top = SmallPadding)
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Button(
+                        onClick = {
+                            coroutine.launch {
+                                listState.animateScrollToItem(
+                                    index = 0
+                                )
+                            }
+                        },
+                        border = BorderStroke(
+                            width = SmallStroke,
+                            color = GenreColor
+                        ),
+                        shape = CircleShape,
+                        colors = ButtonDefaults.buttonColors(
+                            backgroundColor = Color.Transparent
+                        ),
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Up",
+                            tint = Color.White,
+                            modifier = Modifier
+                                .size(PaddingStatusBar)
+                                .padding(ExtraSmallPadding)
+                                .rotate(90f)
+                        )
+                        Spacer(modifier = Modifier.size(ExtraSmallPadding))
+                        Text(
+                            text = "Top",
+                            style = MaterialTheme.typography.button,
+                            modifier = Modifier.padding(ExtraSmallPadding)
+                        )
+
+                    }
+                }
+                Spacer(modifier = Modifier.size(BigPadding))
             }
         }
         if (teamState.isLoading) {
@@ -117,7 +171,7 @@ fun TeamQuote(
         }
         Spacer(modifier = Modifier.size(ExtraSmallPadding))
         Text(
-            text = stringResource(id = headBodyModel.body),
+            text = if(headBodyModel.body != null)stringResource(id = headBodyModel.body)else headBodyModel.message,
             style = MaterialTheme.typography.body2,
             textAlign = TextAlign.Right
         )
@@ -179,7 +233,7 @@ fun SingleMember(
         shape = RoundedCornerShape(SmallPadding),
         border = BorderStroke(
             width = BigStroke,
-            color = SkyBlue
+            color = SkyBlueLow
         )
     ) {
         Column(
@@ -279,7 +333,11 @@ fun SingleMember(
                             .clip(RoundedCornerShape(ExtraSmallPadding))
                             .clickable {
                                 var email = member.email
-                                uriHandler.openUri(email)
+                                try {
+                                    uriHandler.openUri(email)
+                                } catch (e: Exception) {
+                                    Log.e("Nipun", e.message.toString())
+                                }
                             },
                         contentScale = ContentScale.Crop,
                         alignment = Alignment.Center

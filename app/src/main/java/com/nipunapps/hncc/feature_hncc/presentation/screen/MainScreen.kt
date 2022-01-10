@@ -32,6 +32,7 @@ import com.nipunapps.hncc.feature_hncc.domain.model.demoArchitects
 import com.nipunapps.hncc.feature_hncc.domain.model.demoInfos
 import com.nipunapps.hncc.feature_hncc.presentation.components.ArchitectComp
 import com.nipunapps.hncc.feature_hncc.presentation.viewmodels.MainViewModel
+import com.nipunapps.hncc.ui.Screen
 import com.nipunapps.hncc.ui.theme.*
 import kotlinx.coroutines.launch
 
@@ -63,16 +64,13 @@ fun MainScreen(
                     .aspectRatio(1.4f),
                 imageUrl = url
             )
-            demoInfos.forEachIndexed { index, headBodyModel ->
-                if (index > 0) {
-                    Spacer(modifier = Modifier.size(BigPadding))
-                }
-                TextWithHead(
-                    modifier = Modifier
-                        .padding(BigPadding)
-                        .fillMaxWidth(),
-                    demoInfos[index]
-                )
+            TextWithHead(
+                modifier = Modifier
+                    .padding(BigPadding)
+                    .fillMaxWidth(),
+                headBodyModel = demoInfos
+            ) {
+                navController.navigate(Screen.AboutScreen.route)
             }
             Spacer(modifier = Modifier.size(BigPadding))
             demoArchitects.forEachIndexed { i, a ->
@@ -192,7 +190,8 @@ fun TopImage(
 @Composable
 fun TextWithHead(
     modifier: Modifier = Modifier,
-    headBodyModel: HeadBodyModel
+    headBodyModel: HeadBodyModel,
+    onMoreClick: () -> Unit = {}
 ) {
     Column(modifier = modifier) {
         Column(
@@ -214,14 +213,14 @@ fun TextWithHead(
         }
         Spacer(modifier = Modifier.size(BigPadding))
         Text(
-            text = stringResource(id = headBodyModel.body),
+            text = if (headBodyModel.body != null) stringResource(id = headBodyModel.body) else headBodyModel.message,
             style = MaterialTheme.typography.body1
         )
         if (headBodyModel.more) {
             Spacer(modifier = Modifier.size(SmallPadding))
             Button(
                 onClick = {
-
+                    onMoreClick()
                 },
                 border = BorderStroke(
                     width = SmallStroke,

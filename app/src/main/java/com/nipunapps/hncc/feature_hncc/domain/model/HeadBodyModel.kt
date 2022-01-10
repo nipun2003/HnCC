@@ -3,19 +3,20 @@ package com.nipunapps.hncc.feature_hncc.domain.model
 import com.nipunapps.hncc.R
 
 data class HeadBodyModel(
-    val head : String,
-    val body : Int,
-    val more : Boolean = false
+    val head: String,
+    val body: Int? = null,
+    val more: Boolean = false,
+    val message: String = "",
 )
 
 
-val demoInfos = listOf(
+val demoInfos =
     HeadBodyModel(
         head = "About HnCC",
         body = R.string.about_hncc,
         more = true
     )
-)
+
 
 data class ArchitectInfo(
     val head: String,
@@ -25,7 +26,7 @@ data class ArchitectInfo(
 data class Architect(
     val head: String,
     val body: Int,
-    val infos : List<ArchitectInfo>
+    val infos: List<ArchitectInfo>
 )
 
 val demoDesignInfos = listOf(
@@ -78,11 +79,11 @@ val demoCodeInfos = listOf(
 )
 
 val demoArchitects = listOf(
-        Architect(
-            head = "Design.",
-            body = R.string.design,
-            infos = demoDesignInfos
-        ),
+    Architect(
+        head = "Design.",
+        body = R.string.design,
+        infos = demoDesignInfos
+    ),
     Architect(
         head = "Develop.",
         body = R.string.develop,

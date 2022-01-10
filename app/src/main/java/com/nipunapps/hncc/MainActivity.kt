@@ -24,6 +24,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.nipunapps.hncc.core.noRippleClickable
+import com.nipunapps.hncc.feature_hncc.data.remote.FirebaseManager
 import com.nipunapps.hncc.feature_hncc.presentation.screen.*
 import com.nipunapps.hncc.feature_hncc.presentation.viewmodels.MainViewModel
 import com.nipunapps.hncc.ui.Screen
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
     @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val fireBase = FirebaseManager()
         setContent {
             HnCCTheme {
                 // A surface container using the 'background' color from the theme
@@ -102,6 +104,11 @@ class MainActivity : ComponentActivity() {
                                 route = "image/{image}"
                             ){
                                 ImageFullScreen()
+                            }
+                            composable(
+                                route = Screen.JoinUsScreen.route
+                            ){
+                                JoinUsScreen()
                             }
                         }
                     }
